@@ -35,7 +35,7 @@ subprojects {
     test {
         systemProperty "file.encoding", "utf-8"
         outputs.upToDateWhen { false }
-        afterTest { TestDescriptor test, TestResult result ->
+        afterTest {
             if (result.resultType == TestResult.ResultType.FAILURE) {
                 def message = result.exception?.message ?: "Wrong answer"
                 def lines = message.readLines()
